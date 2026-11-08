@@ -32,5 +32,13 @@ public class PlayerMovement : MonoBehaviour
         {
             sprite_renderer.flipX = false;
         }
+
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            animator.SetBool("Walking", true);
+        } else
+        {
+            animator.SetBool("Walking", false);
+        }
     }
 }
