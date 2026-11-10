@@ -9,7 +9,6 @@ public class PlayerHandler : MonoBehaviour
     private Rigidbody2D rigidbody;
     private SpriteRenderer sprite_renderer;
     private Vector2 direction;
-    public bool currently_chatting = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,32 +44,32 @@ public class PlayerHandler : MonoBehaviour
 
 
         // Find Closest NPC
-        float closestDistance = Mathf.Infinity;
-        GameObject closestNPC = null;
-        GameObject npcs = GameObject.Find("NPCs");
+        //float closestDistance = Mathf.Infinity;
+        //GameObject closestNPC = null;
+        //GameObject npcs = GameObject.Find("NPCs");
 
-        foreach (Transform npc in npcs.transform)
-        {
-            float distance = Vector3.Distance(
-                transform.position,
-                npc.position
-            );
+        //foreach (Transform npc in npcs.transform)
+        //{
+        //    float distance = Vector3.Distance(
+        //        transform.position,
+        //        npc.position
+        //    );
 
-            if (distance < closestDistance && distance < 1.5)
-            {
-                closestDistance = distance;
-                closestNPC = npc.gameObject;
-            }
-        }
+        //    if (distance < closestDistance && distance < 1.5)
+        //    {
+        //        closestDistance = distance;
+        //        closestNPC = npc.gameObject;
+        //    }
+        //}
 
-        if (closestNPC != null)
-        {
-            DialogueHandler npc_dialogue = closestNPC.GetComponent<DialogueHandler>();
-            if (Input.GetKeyDown(KeyCode.E) && npc_dialogue != null && !currently_chatting)
-            {
-                currently_chatting = true;
-                npc_dialogue.InitDialogue();
-            }
-        }
+        //if (closestNPC != null)
+        //{
+        //    DialogueHandler npc_dialogue = closestNPC.GetComponent<DialogueHandler>();
+        //    if (Input.GetKeyDown(KeyCode.E) && npc_dialogue != null && !currently_chatting)
+        //    {
+        //        currently_chatting = true;
+        //        npc_dialogue.InitDialogue();
+        //    }
+        //}
     }
 }
