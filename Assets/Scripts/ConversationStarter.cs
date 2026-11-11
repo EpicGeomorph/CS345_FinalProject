@@ -4,11 +4,14 @@ using DialogueEditor;
 public class ConversationStarter : MonoBehaviour
 {
     [SerializeField] private NPCConversation myConversation;
+    [SerializeField] private float talkRange = 1.7f;
     private GameObject player;
+    private CaseFile caseFile;
 
     void Start()
     {
         player = GameObject.Find("Player");
+        caseFile = FindFirstObjectByType<CaseFile>();
     }
 
     //private void OnTriggerStay(Collider other)
@@ -27,10 +30,33 @@ public class ConversationStarter : MonoBehaviour
     {
         if (player)
         {
-            if (Vector3.Distance(player.transform.position, transform.position) < 1.7 && Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && ClosestInRange() == this)
             {
                 ConversationManager.Instance.StartConversation(myConversation);
+                if (caseFile)
+                {
+                    caseFile.ShareWith(myConversation);
+                }
             }
         }
+    }
+
+    // Only the nearest NPC in range answers E, so overlapping ranges never start two conversations.
+    private ConversationStarter ClosestInRange()
+    {
+        ConversationStarter closest = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (ConversationStarter starter in FindObjectsByType<ConversationStarter>(FindObjectsSortMode.None))
+        {
+            float distance = Vector3.Distance(player.transform.position, starter.transform.position);
+            if (distance < starter.talkRange && distance < closestDistance)
+            {
+                closest = starter;
+                closestDistance = distance;
+            }
+        }
+
+        return closest;
     }
 }
