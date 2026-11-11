@@ -27,7 +27,7 @@ public class ConversationStarter : MonoBehaviour
     {
         if (player)
         {
-            if (Vector3.Distance(player.transform.position, transform.position) < 1.5 && Input.GetKeyDown(KeyCode.E))
+            if (Vector3.Distance(player.transform.position, transform.position) < 1.7 && Input.GetKeyDown(KeyCode.E))
             {
                 ConversationManager.Instance.StartConversation(myConversation);
             }
