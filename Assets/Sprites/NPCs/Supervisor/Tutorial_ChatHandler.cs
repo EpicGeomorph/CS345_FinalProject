@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tutorial_ChatHandler : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class Tutorial_ChatHandler : MonoBehaviour
     public GameObject identified_chat;
     public GameObject body_chat;
     public GameObject body;
+    public GameObject inv_wallet;
+    public GameObject inventory;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +27,10 @@ public class Tutorial_ChatHandler : MonoBehaviour
     {
         Destroy(body_chat);
         wallet_chat.transform.position = transform.position;
+
+        GameObject new_wallet = Instantiate(inv_wallet, inv_wallet.transform.position,Quaternion.identity, inventory.transform);
+        Button button = new_wallet.GetComponentInChildren<Button>();
+        button.onClick.AddListener(() => FoundPerson());
     }
 
     public void FoundPerson()

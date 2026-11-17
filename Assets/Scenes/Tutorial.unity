@@ -146,6 +146,8 @@ MonoBehaviour:
   identified_chat: {fileID: 1967621037}
   body_chat: {fileID: 1433964534}
   body: {fileID: 1544931025}
+  inv_wallet: {fileID: 6338163095406171686, guid: c1af4e9e6efc74d4f9dbda595154227c, type: 3}
+  inventory: {fileID: 528748740}
 --- !u!1 &54360532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,6 +1272,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &528748740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2150605319718868793, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+  m_PrefabInstance: {fileID: 1189443771329714698}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &585416524
 GameObject:
   m_ObjectHideFlags: 0
@@ -3539,11 +3546,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueEditor.NPCConversation
   CurrentIDCounter: 7
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":894,"yPos":153},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"[Search
-    Pockets]","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":1125,"yPos":154},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"[Leave]","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":898,"yPos":340},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"[Take
-    Wallet]","parentUIDs":[4],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":2},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":true,"xPos":1012,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":".
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":4}],"EditorInfo":{"isRoot":false,"xPos":893,"yPos":152},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"[Search
+    Pockets]","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":1124,"yPos":153},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"[Leave]","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":897,"yPos":339},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"[Take
+    Wallet]","parentUIDs":[4],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":2},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":true,"xPos":1011,"yPos":21},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":".
     . .","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dead
-    Body","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":894,"yPos":235},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"You
+    Body","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":893,"yPos":234},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"You
     find a wallet.","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Dead
     Body","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
@@ -6013,6 +6020,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 585416525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1189443771329714698
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 543088818256548438, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508698882886882363, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
+      propertyPath: m_Name
+      value: InventoryCanvas
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 09f521e886615a740a214f190e5e71e1, type: 3}
 --- !u!1001 &5138707425084094006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6100,3 +6204,4 @@ SceneRoots:
   - {fileID: 54360535}
   - {fileID: 1967621040}
   - {fileID: 1433964537}
+  - {fileID: 1189443771329714698}
