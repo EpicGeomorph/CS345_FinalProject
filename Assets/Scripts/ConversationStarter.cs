@@ -5,7 +5,6 @@ public class ConversationStarter : MonoBehaviour
 {
     [SerializeField] private NPCConversation myConversation;
     private GameObject player;
-    private bool canChat = true;
 
     void Start()
     {
@@ -25,13 +24,13 @@ public class ConversationStarter : MonoBehaviour
 
     public void InitChat()
     {
-        canChat = true;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player && canChat)
+        if (player)
         {
             if (Vector3.Distance(player.transform.position, transform.position) < 1.7 && Input.GetKeyDown(KeyCode.E))
             {
