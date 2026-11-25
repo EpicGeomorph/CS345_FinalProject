@@ -10,6 +10,8 @@ public class Level1_Chat : MonoBehaviour
     public GameObject inv_wallet;
     public GameObject inv_pass;
     public GameObject car_chat;
+    public GameObject conclusion_chat;
+    public GameObject inv_picture;
 
     public bool talkedToCorpse = false;
     public bool talkedToCar = false;
@@ -26,7 +28,7 @@ public class Level1_Chat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckIfAllChecked();
     }
 
     public void InitCarCorpse()
@@ -34,7 +36,7 @@ public class Level1_Chat : MonoBehaviour
         Destroy(init_chat);
         quest_content.text = "Search around for clues";
 
-        car_chat.transform.position = new Vector3(0.79f, -2.39f, 0);
+        car_chat.transform.position = new Vector3(1.67f, -1.34f, 0);
         corpse_chat.transform.position = new Vector3(-3.59f, -3.92f, 0);
     }
 
@@ -45,5 +47,21 @@ public class Level1_Chat : MonoBehaviour
 
         Instantiate(inv_wallet, inv_wallet.transform.position, Quaternion.identity, inventory.transform);
         Instantiate(inv_pass, inv_pass.transform.position, Quaternion.identity, inventory.transform);
+    }
+
+    public void CheckIfAllChecked()
+    {
+        if (InspectedPass && InspectedWallet && talkedToCar && talkedToCorpse)
+        {
+            quest_content.text = "Talk to Supervisor";
+            conclusion_chat.transform.position = transform.position;
+        }
+    }
+
+    public void TakeScreenshot()
+    {
+        Destroy(car_chat);
+        Instantiate(inv_picture, inv_picture.transform.position, Quaternion.identity, inventory.transform);
+        talkedToCar = true;
     }
 }
