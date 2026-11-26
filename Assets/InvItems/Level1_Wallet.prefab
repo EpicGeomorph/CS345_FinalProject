@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1617132186712118725}
   - component: {fileID: 778430114967826770}
   - component: {fileID: 3051315033832077288}
+  - component: {fileID: 4728193650012345678}
   m_Layer: 0
   m_Name: Level1_Wallet
   m_TagString: Untagged
@@ -221,3 +222,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4728193650012345678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3311197087296461277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a52af3e3614f53aaed54a4679ad849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InspectableItem
+  title: Victim's Wallet
+  description: Wallet found on the dead driver
+  inspectView: {fileID: 7002492503747781072, guid: 67bfc55058644871bf902d1863c7ede2, type: 3}
+  inspectSprite: {fileID: 7599016493413551763, guid: 4e72b7823bbf8c44b8b044844e4fafe0, type: 3}
+  itemId: 

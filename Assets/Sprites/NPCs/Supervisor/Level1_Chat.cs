@@ -64,4 +64,10 @@ public class Level1_Chat : MonoBehaviour
         Instantiate(inv_picture, inv_picture.transform.position, Quaternion.identity, inventory.transform);
         talkedToCar = true;
     }
+
+    // Called by the clickable text on the Press Pass inspect view.
+    public void InspectPass()
+    {
+        InspectedPass = true;
+    }
 }

@@ -22,7 +22,7 @@ public class Wallet2_Press : MonoBehaviour
             Level1_Chat chat = sup.GetComponent<Level1_Chat>();
             if (chat && !chat.InspectedPass)
             {
-                chat.InspectedPass = true;
+                //chat.InspectedPass = true;
             }
         }
     }

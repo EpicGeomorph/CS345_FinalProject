@@ -34,7 +34,7 @@ public class Tutorial_ChatHandler : MonoBehaviour
 
         GameObject new_wallet = Instantiate(inv_wallet, inv_wallet.transform.position,Quaternion.identity, inventory.transform);
         Button button = new_wallet.GetComponentInChildren<Button>();
-        button.onClick.AddListener(() => FoundPerson());
+        //button.onClick.AddListener(() => FoundPerson());
 
         quest_dialogue.text = "Inspect the Wallet";
     }

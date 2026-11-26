@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 2537816262403817983}
   - component: {fileID: 1553347244521291589}
   - component: {fileID: 2363376940108238545}
+  - component: {fileID: 6619283745501928374}
   m_Layer: 0
   m_Name: Level1_PressPass
   m_TagString: Untagged
@@ -216,8 +217,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8087048656348385110}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f0afaec16c42a64dbd84bac69b1a7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Wallet2_Press
+--- !u!114 &6619283745501928374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8087048656348385110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a52af3e3614f53aaed54a4679ad849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InspectableItem
+  title: Victim's Press Pass
+  description: A special pass for people of the Press
+  inspectView: {fileID: 8846250802418264093, guid: a431039c75eb4c73bd5c82fd72df138d, type: 3}
+  inspectSprite: {fileID: 7273344415820067679, guid: b3cf744c8ac2c2547bc620d49e800b99, type: 3}
+  itemId: 

@@ -20,4 +20,24 @@ public class Levelhandler : MonoBehaviour
                 break;
         }
     }
+
+    // ---------------------------------------------------------------
+    // Inspect UI hotspots call these by name (InspectHotspot > Method Name).
+    // Add a new public method here for every new hotspot you make.
+    // ---------------------------------------------------------------
+
+    public void Inspect_IDPhoto()
+    {
+        Debug.Log("Inspected the ID photo");
+    }
+
+    public void Inspect_IDName()
+    {
+        Debug.Log("Inspected the name on the ID");
+    }
+
+    public void Inspect_IDStar()
+    {
+        Debug.Log("Inspected the star on the ID");
+    }
 }
