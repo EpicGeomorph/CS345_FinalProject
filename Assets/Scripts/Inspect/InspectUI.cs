@@ -33,6 +33,16 @@ public class InspectUI : MonoBehaviour
     [SerializeField] private bool closeWithEscape = true;
     [SerializeField] private bool closeOnBackgroundClick = true;
 
+    [Header("Sound")]
+    [Tooltip("Plays the first time each hotspot is clicked. Leave empty to use Resources/Audio/InspectSparkle.")]
+    [SerializeField] private AudioClip discoverSound;
+    [SerializeField, Range(0f, 1f)] private float discoverVolume = 0.6f;
+    [Tooltip("Plays when an inventory item opens this window and when it is closed. Leave empty to use Resources/Audio/UIClick.")]
+    [SerializeField] private AudioClip clickSound;
+    [SerializeField, Range(0f, 1f)] private float clickVolume = 0.5f;
+    private AudioSource sfxSource;
+    private AudioSource clickSource;
+
     private GameObject currentView;
     private InspectableItem currentItem;
     private Levelhandler levelHandler;
@@ -40,6 +50,9 @@ public class InspectUI : MonoBehaviour
     // Remembers which "only once" hotspots were already clicked, so they stay
     // found when the same item is opened again.
     private readonly HashSet<string> usedHotspots = new HashSet<string>();
+
+    // Every hotspot that has been clicked at least once (used for the discover sound).
+    private readonly HashSet<string> discoveredHotspots = new HashSet<string>();
 
     public bool IsOpen => popup != null && popup.activeSelf;
 
@@ -54,6 +67,18 @@ public class InspectUI : MonoBehaviour
         if (closeButton) closeButton.onClick.AddListener(Close);
         if (backgroundButton) backgroundButton.onClick.AddListener(() => { if (closeOnBackgroundClick) Close(); });
         if (detailCloseButton) detailCloseButton.onClick.AddListener(HideDetail);
+
+        if (discoverSound == null) discoverSound = Resources.Load<AudioClip>("Audio/InspectSparkle");
+        if (clickSound == null) clickSound = Resources.Load<AudioClip>("Audio/UIClick");
+        sfxSource = gameObject.AddComponent<AudioSource>();
+        sfxSource.playOnAwake = false;
+        sfxSource.spatialBlend = 0f;
+        sfxSource.ignoreListenerPause = true; // still plays if the game is paused while inspecting
+
+        clickSource = gameObject.AddComponent<AudioSource>();
+        clickSource.playOnAwake = false;
+        clickSource.spatialBlend = 0f;
+        clickSource.ignoreListenerPause = true;
 
         HideDetail();
         popup.SetActive(false);
@@ -83,6 +108,8 @@ public class InspectUI : MonoBehaviour
     public void Open(InspectableItem item)
     {
         if (item == null) return;
+
+        PlayClick(1.0f);
 
         ClearView();
         HideDetail();
@@ -123,8 +150,12 @@ public class InspectUI : MonoBehaviour
         popup.SetActive(true);
     }
 
-    public void Close()
+    public void Close() => Close(true);
+
+    private void Close(bool withClick)
     {
+        if (withClick && IsOpen) PlayClick(0.85f); // slightly lower pitch than opening
+
         ClearView();
         HideDetail();
         currentItem = null;
@@ -147,6 +178,12 @@ public class InspectUI : MonoBehaviour
     /// <summary>Called by InspectHotspot when it is clicked.</summary>
     public void HotspotClicked(InspectHotspot hotspot, string key)
     {
+        // Click/sparkle sound, only the first time this box is inspected
+        if (discoveredHotspots.Add(key) && discoverSound != null)
+        {
+            sfxSource.PlayOneShot(discoverSound, discoverVolume);
+        }
+
         if (!string.IsNullOrEmpty(hotspot.description))
         {
             descriptionText.text = hotspot.description;
@@ -170,12 +207,20 @@ public class InspectUI : MonoBehaviour
 
         if (hotspot.closeAfterClick)
         {
-            Close();
+            Close(false); // the hotspot already made its own sound
         }
         else if (hotspot.popupSprite != null)
         {
             ShowDetail(hotspot.popupSprite);
         }
+    }
+
+    private void PlayClick(float pitch)
+    {
+        if (clickSound == null || clickSource == null) return;
+        // Clicks have their own AudioSource so changing pitch never affects the sparkle
+        clickSource.pitch = pitch;
+        clickSource.PlayOneShot(clickSound, clickVolume);
     }
 
     private void CallOnObject(string objectName, string methodName, string argument)

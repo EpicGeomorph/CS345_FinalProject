@@ -24,6 +24,10 @@ public class InspectableItem : MonoBehaviour
     [Tooltip("Used to remember which hotspots were found. Defaults to the prefab name if left empty.")]
     [SerializeField] private string itemId;
 
+    [Tooltip("Optional. If the scene has no InspectCanvas, this one is spawned automatically " +
+             "(drag in Assets/Fabs/InspectCanvas.prefab).")]
+    [SerializeField] private GameObject inspectCanvasPrefab;
+
     public string ItemKey => string.IsNullOrEmpty(itemId) ? gameObject.name.Replace("(Clone)", "").Trim() : itemId;
 
     void Start()
@@ -41,6 +45,11 @@ public class InspectableItem : MonoBehaviour
 
     public void Open()
     {
+        if (InspectUI.Instance == null && inspectCanvasPrefab != null)
+        {
+            Instantiate(inspectCanvasPrefab); // its InspectUI sets InspectUI.Instance in Awake
+        }
+
         if (InspectUI.Instance == null)
         {
             Debug.LogWarning("No InspectCanvas in this scene. Drag Assets/Fabs/InspectCanvas.prefab into the scene.");

@@ -248,8 +248,8 @@ MonoBehaviour:
   targetObject: 
   methodName: 
   argument: 
-  popupSprite: {fileID: 0}
-  description: 
+  popupSprite: {fileID: 7208724774422863926, guid: d3e8580ecb13fc14b9c3e840268c0364, type: 3}
+  description: 'Leonardo Divil... Name sounds familiar...'
   onlyOnce: 1
   closeAfterClick: 0
   onClicked:

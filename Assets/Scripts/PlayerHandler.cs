@@ -10,12 +10,26 @@ public class PlayerHandler : MonoBehaviour
     private SpriteRenderer sprite_renderer;
     private Vector2 direction;
 
+    [Header("Footsteps")]
+    [SerializeField] private AudioClip footstepClip;   // leave empty to use Resources/Audio/Footsteps
+    [SerializeField, Range(0f, 1f)] private float footstepVolume = 0.35f;
+    private AudioSource footstepSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         sprite_renderer = GetComponent<SpriteRenderer>();
+
+        // Footstep audio: a looping clip that plays only while walking
+        if (footstepClip == null) footstepClip = Resources.Load<AudioClip>("Audio/Footsteps");
+        footstepSource = gameObject.AddComponent<AudioSource>();
+        footstepSource.clip = footstepClip;
+        footstepSource.loop = true;
+        footstepSource.playOnAwake = false;
+        footstepSource.spatialBlend = 0f;
+        footstepSource.volume = footstepVolume;
     }
 
     // Update is called once per frame
@@ -37,9 +51,19 @@ public class PlayerHandler : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             animator.SetBool("Walking", true);
+
+            // Start footsteps when the player begins walking
+            if (footstepClip != null && !footstepSource.isPlaying)
+            {
+                footstepSource.pitch = Random.Range(0.95f, 1.05f);
+                footstepSource.Play();
+            }
         } else
         {
             animator.SetBool("Walking", false);
+
+            // Stop footsteps as soon as the player stops
+            if (footstepSource.isPlaying) footstepSource.Stop();
         }
 
 

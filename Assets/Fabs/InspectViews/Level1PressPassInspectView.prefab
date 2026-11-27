@@ -249,7 +249,7 @@ MonoBehaviour:
   methodName: InspectPass
   argument: 
   popupSprite: {fileID: 0}
-  description: 'A journalist known for exposing corruption. I wonder if this is personal...'
+  description: 'Ah, he was a journalist. Isn''t this the guy known for exposing corruption in the city?'
   onlyOnce: 1
   closeAfterClick: 0
   onClicked:

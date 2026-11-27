@@ -6168,7 +6168,7 @@ MonoBehaviour:
     hear about the article from the Dirt Digger? Wild stuff I say.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Civilian","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
-  DefaultSprite: {fileID: 0}
+  DefaultSprite: {fileID: 7312527153410215227, guid: f9a6fb45924e0a84aad2f24fefaafddc, type: 3}
   DefaultFont: {fileID: 0}
   NodeSerializedDataList:
   - {fileID: 972960579}
@@ -7954,7 +7954,7 @@ MonoBehaviour:
       m_Calls: []
   NodeID: 0
   TMPFont: {fileID: 0}
-  Icon: {fileID: 0}
+  Icon: {fileID: 7312527153410215227, guid: f9a6fb45924e0a84aad2f24fefaafddc, type: 3}
   Audio: {fileID: 0}
 --- !u!1 &976290897
 GameObject:
@@ -11110,7 +11110,7 @@ MonoBehaviour:
       m_Calls: []
   NodeID: 0
   TMPFont: {fileID: 0}
-  Icon: {fileID: 0}
+  Icon: {fileID: -3822391536066493443, guid: 96a09827e40af404e9818170d755849f, type: 3}
   Audio: {fileID: 0}
 --- !u!114 &1298845942
 MonoBehaviour:
@@ -11995,6 +11995,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHandler
   movespeed: 5
+  footstepClip: {fileID: 0}
+  footstepVolume: 0.35
 --- !u!212 &1480595145
 SpriteRenderer:
   serializedVersion: 2
