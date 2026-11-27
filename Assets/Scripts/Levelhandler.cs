@@ -15,6 +15,9 @@ public class Levelhandler : MonoBehaviour
             case "Level_1":
                 SceneManager.LoadScene("Level_2");
                 break;
+            case "Level_2":
+                SceneManager.LoadScene("Level_2");
+                break;
             default:
                 Debug.Log("Couldn't find scene");
                 break;

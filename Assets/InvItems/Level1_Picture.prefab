@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 4500214363949893537}
   - component: {fileID: 2896731704616716230}
   - component: {fileID: 7408488699203509068}
+  - component: {fileID: 3390571846620193847}
   m_Layer: 0
   m_Name: Level1_Picture
   m_TagString: Untagged
@@ -234,3 +235,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 340b71396e793cd46a9421d499c75bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level1_Picture
+--- !u!114 &3390571846620193847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8857321988794323435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a52af3e3614f53aaed54a4679ad849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InspectableItem
+  title: Picture
+  description: Picture taken of the brake lines of the car
+  inspectView: {fileID: 1546365259465037131, guid: 743fb3ea445542199a3981cc3efb187c, type: 3}
+  inspectSprite: {fileID: -1604975367962619762, guid: a6a20846c7dd4064184473e16507afc6, type: 3}
+  itemId: 

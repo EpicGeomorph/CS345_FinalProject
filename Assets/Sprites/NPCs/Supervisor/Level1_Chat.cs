@@ -70,4 +70,10 @@ public class Level1_Chat : MonoBehaviour
     {
         InspectedPass = true;
     }
+
+    // Called by the clickable sparks on the Picture (CutBrakes) inspect view.
+    public void InspectBrakes()
+    {
+        talkedToCar = true;
+    }
 }
